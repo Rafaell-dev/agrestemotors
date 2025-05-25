@@ -1,0 +1,125 @@
+.cars-gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 40px 0px;
+    gap: 30px;
+}
+
+.car-card {
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+    width: calc((100% - (3 * 30px)) / 4);
+}
+
+.car-card:hover {
+    cursor: pointer;
+}
+
+.car-card-header {
+    position: absolute;
+    top: 20px; 
+    left: 20px;
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: none;
+}
+
+.car-card-image {
+    width: 100%;
+    height: 210px;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.car-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1s ease-in-out;
+}
+
+.car-card:hover .car-card-image img {
+    transform: scale(1.03);
+}
+
+.car-card-details {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.car-card-details h3 {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    color: #333333;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.car-card-details .price {
+    font-size: 28px; 
+    color: #FF6600; 
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.car-card-details .price span {
+    font-size: 28px; 
+}
+
+.car-card-details .specs {
+    font-size: 13px;
+    color: #888888;
+    margin: 15px 0 0 0;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-top: 15px;
+    border-top: 1px solid #EEEEEE;
+}
+
+/* --- RESPONSIVIDADE --- */
+
+/* Para 3 cards por linha */
+@media (max-width: 1200px) {
+    .car-card {
+        width: calc((100% - (2 * 30px)) / 3); /* (100% da largura - 2 gaps) dividido por 3 cards */
+    }
+}
+
+/* Para 2 cards por linha */
+@media (max-width: 992px) {
+    .car-card {
+        width: calc((100% - 30px) / 2);
+    }
+}
+
+/* Para 1 card por linha */
+@media (max-width: 700px) {
+    .car-card {
+        width: 100%; 
+    }
+    .cars-gallery-container {
+        justify-content: center; /* Centraliza o card quando há apenas um por linha e ele não ocupa 100% */
+    }
+}

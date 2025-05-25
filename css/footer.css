@@ -1,0 +1,184 @@
+footer {
+    background-color: #1c1c1c; /* Cor de fundo escura para o footer */
+    color: #cccccc; /* Cor de texto clara para contraste */
+    padding: 60px 0 20px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px; /* Espaçamento entre as colunas */
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 280px; /* Largura mínima para responsividade */
+    padding: 0 15px;
+}
+
+.footer-logo {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-about p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre ícone e texto */
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.contact-info svg {
+    width: 18px;
+    height: 18px;
+    stroke: #f0f0f0; /* Cor dos ícones de contato */
+}
+
+.footer-column h4 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h4::after { /* Pequeno sublinhado decorativo para os títulos */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #FF6600;
+}
+
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 1s ease, padding-left 1s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #D74500; /* Cor mais clara no hover */
+    padding-left: 5px; /* Pequeno efeito de indentação no hover */
+}
+
+.map-container {
+    width: 100%;
+    height: 250px; /* Altura do mapa */
+    overflow: hidden; /* Garante que o iframe não ultrapasse */
+    border-radius: 5px; /* Bordas arredondadas para o container do mapa */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 5px; /* Bordas arredondadas para o iframe */
+}
+
+.footer-bottom {
+    border-top: 1px solid #333333; /* Linha divisória sutil */
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.footer-bottom p {
+    margin: 5px 10px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px; /* Espaçamento entre ícones sociais */
+    margin: 5px 10px;
+}
+
+.social-icons a {
+    color: #cccccc;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffffff; /* Cor mais clara no hover */
+    transform: translateY(-2px); /* Efeito de elevação no hover */
+}
+
+.social-icons svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center; /* Centraliza colunas em telas menores */
+        text-align: center;
+    }
+
+    .footer-column {
+        min-width: 100%; /* Colunas ocupam largura total */
+        margin-bottom: 30px;
+        padding: 0;
+    }
+    
+    .footer-column:last-child {
+        margin-bottom: 0;
+    }
+
+    .contact-info p {
+        justify-content: center; /* Centraliza itens de contato */
+    }
+    
+    .footer-column h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+    .footer-bottom p {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 0 20px;
+    }
+    .footer-column h4 {
+        font-size: 1.1rem;
+    }
+}

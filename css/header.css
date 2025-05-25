@@ -1,0 +1,178 @@
+header {
+    background-color: #1c1c1c;
+    color: white;
+    text-align: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    margin: 0 auto;
+
+    font-size: 14px;
+}
+
+nav ul {
+    display: flex;
+    gap: 60px;
+}
+
+header img {
+    width: 140px;
+    height: auto;
+}
+
+header a:hover {
+    color: #D74500;
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.desktop-nav, .desktop-phone {
+    display: none;
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+
+/* Animação do hambúrguer */
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Escondido por padrão, à direita da tela */
+    width: 250px;
+    height: 100%;
+    background-color: #1c1c1c; /* Mesma cor do header ou outra de sua preferência */
+    padding-top: 80px; /* Espaço para não cobrir o topo do header */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar.active {
+    right: 0; /* Desliza para a direita quando ativo */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espaçamento entre os itens do menu */
+}
+
+.sidebar ul li {
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #D74500;
+    color: white;
+}
+
+.sidebar p {
+    display: flex;
+    color: white;
+    font-size: 16px;
+}
+
+.sidebar-phone {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Media Queries para Responsividade */
+@media (min-width: 768px) { /* Para telas maiores que 768px */
+    .hamburger-menu, .sidebar {
+        display: none; /* Esconde o hambúrguer e sidebar em desktop */
+    }
+
+    .desktop-nav {
+        display: block; /* Mostra a navegação desktop */
+    }
+
+    .desktop-nav ul {
+        display: flex;
+        gap: 60px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .desktop-nav ul li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .desktop-nav ul li a:hover {
+        color: #D74500;
+    }
+
+    .desktop-phone {
+        display: flex; /* Mostra o telefone em desktop */
+        gap: 8px;
+        align-items: center;
+    }
+
+    /* Ajusta o container para desktop se necessário */
+    header .container {
+        justify-content: space-between;
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 767px) { /* Para telas menores que 767px (mobile) */
+    .desktop-nav, .desktop-phone {
+        display: none; /* Esconde navegação desktop e telefone */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Mostra o menu hambúrguer */
+    }
+
+    header .container {
+        justify-content: space-between; /* Ajusta o espaçamento */
+    }
+}

@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+ul li{
+    list-style: none;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.title-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-section h2 {
+    flex-shrink: 0;
+}
+
+.title-section hr {
+    flex-grow: 1;
+    height: 4px;
+    background-color: #ADADAD;
+    border: none;
+}
+
+.title-section .btn {
+    flex-shrink: 1;
+    width: 18%;
+}
+
+.btn {
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #D74500;
+}
+
+
+/* Para navegadores WebKit (Chrome, Safari, Edge, Opera) */
+::-webkit-scrollbar {
+    width: 6px;  /* Largura da barra de rolagem vertical */
+    height: 2px; /* Altura da barra de rolagem horizontal */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor do fundo da trilha */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #ADADAD;    /* Cor do "polegar" (a parte que você arrasta) */
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;    /* Cor do "polegar" ao passar o mouse */
+  }
+
+@media screen and (max-width: 768px) {
+    .title-section {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .title-section .btn {
+        width: 100%;
+    }
+
+    .title-section h2 {
+        margin-bottom: 10px;
+    }
+
+    .title-section hr {
+        display: none;
+    }
+}
+

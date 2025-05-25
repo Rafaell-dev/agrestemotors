@@ -1,0 +1,55 @@
+.logo-gallery {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.logo-gallery::-webkit-scrollbar {
+    height: 8px; /* Altura da barra de scroll */
+}
+
+.logo-gallery::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor da trilha da barra de scroll */
+    border-radius: 10px;
+}
+
+.logo-gallery::-webkit-scrollbar-thumb {
+    background: #888; /* Cor do "polegar" da barra de scroll */
+    border-radius: 10px;
+}
+
+.logo-gallery::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor do "polegar" ao passar o mouse */
+}
+
+.logo-item {
+    width: 120px;
+    height: 120px;
+    background-color: #FFFFFF; 
+    border-radius: 50%;
+    border: 1px solid #D74500; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.logo-item img {
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+    display: block;
+}
+
+.logo-item:hover {
+    cursor: pointer;
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
