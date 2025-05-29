@@ -129,7 +129,7 @@ footer {
 }
 
 .social-icons a:hover {
-    color: #ffffff; /* Cor mais clara no hover */
+    color: #D74500; /* Cor mais clara no hover */
     transform: translateY(-2px); /* Efeito de elevação no hover */
 }
 
