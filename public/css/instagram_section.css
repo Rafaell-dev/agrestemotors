@@ -5,7 +5,7 @@
 .instagram-section {
     display: flex;
     background: linear-gradient(90deg, #FF6600 0%, hsl(24, 95%, 43%) 100%);
-    clip-path: polygon(0 0, 100% 10%, 100% 67%, 0% 100%);
+    clip-path: polygon(0 0, 100% 10%, 100% 86%, 0% 100%);
     color: #fff;
     padding: 200px 0;
 }
