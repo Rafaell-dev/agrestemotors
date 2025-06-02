@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agreste Motors</title>
+    <link rel="icon" href="./assets/icon_agreste_motors.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/vehicles_gallery.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/vehicles.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <main>
+        <section id="veiculos" class="veiculos-section">
+            <div class="container">
+                <div class="vehicles-list">
+                    <div class="vehicles-filter">
+                        <div class="filter-container">
+                            <h2>Filtros</h2>
+                            <div class="year-filter">
+                                <div class="filter-title">
+                                    <h3>Ano</h3>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-wrapper">
+                                        <input placeholder=" " id="filterMinYear" name="year-min" type="number" value=""
+                                            maxlength="4">
+                                        <label for="filterMinYear">Ano mínimo</label>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <input placeholder=" " id="filterMaxYear" name="year-max" type="number" value=""
+                                            maxlength="4">
+                                        <label for="filterMaxYear">Ano máximo</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="price-filter">
+                                <div class="filter-title">
+                                    <h3>Preço</h3>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-wrapper">
+                                        <input placeholder=" " id="filterMinPrice" name="year-min" type="number"
+                                            value="" maxlength="4">
+                                        <label for="filterMinPrice">Preço mínimo</label>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <input placeholder=" " id="filterMaxPrice" name="year-max" type="number"
+                                            value="" maxlength="4">
+                                        <label for="filterMaxPrice">Preço máximo</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="price-filter">
+                                <div class="filter-title">
+                                    <h3>Quilometragem</h3>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-wrapper">
+                                        <input placeholder=" " id="filterMinPrice" name="year-min" type="number"
+                                            value="" maxlength="4">
+                                        <label for="filterMinPrice">Km mínimo</label>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <input placeholder=" " id="filterMaxPrice" name="year-max" type="number"
+                                            value="" maxlength="4">
+                                        <label for="filterMaxPrice">Km máximo</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cars-gallery-container">
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/mercedes_amg.png" alt="Mercedes-Benz AMG">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>MERCEDES-BENZ AMG</h3>
+                                <p class="price">R$<span>2.000.000</span></p>
+                                <p class="specs">2023 - 5.342KM - GASOLINA</p>
+                            </div>
+                        </div>
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/lamborghini_urus.png" alt="Lamborghini Urus LP 640">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>LAMBORGHINI URUS LP 640</h3>
+                                <p class="price">R$<span>2.600.000</span></p>
+                                <p class="specs">2019 - 15.232KM - GASOLINA</p>
+                            </div>
+                        </div>
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/porsche_718.png" alt="Porsche 718 Cayman GT4 4.0">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>PORSCHE 718 CAYMAN GT4 4.0</h3>
+                                <p class="price">R$<span>1.100.000</span></p>
+                                <p class="specs">2023 - 1.342KM - GASOLINA</p>
+                            </div>
+                        </div>
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/porsche_spider.png" alt="Porsche 718 Cayman GT4 4.0">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>PORSCHE 718 SPYDER RS 4.0</h3>
+                                <p class="price">R$<span>2.450.000</span></p>
+                                <p class="specs">2024 - 342KM - GASOLINA</p>
+                            </div>
+                        </div>
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/fiat_mobi.png" alt="Fiat MOBI">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>FIAT MOBI</h3>
+                                <p class="price">R$<span>51.000</span></p>
+                                <p class="specs">2022 - 32.965KM - MANUAL</p>
+                            </div>
+                        </div>
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/ford_focus.png" alt="Ford Focus">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>FORD FOCUS</h3>
+                                <p class="price">R$<span>67.500</span></p>
+                                <p class="specs">2018 - 56.022KM - AUTOMÁTICO</p>
+                            </div>
+                        </div>
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/hyundai_hb20.png" alt="Hyundai HB20">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>HYUNDAI HB20</h3>
+                                <p class="price">R$<span>67.500</span></p>
+                                <p class="specs">2022 - 90.422KM - MANUAL</p>
+                            </div>
+                        </div>
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/toyota_corolla.png" alt="Toyota Corolla">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>TOYOTA COROLLA</h3>
+                                <p class="price">R$<span>115.150</span></p>
+                                <p class="specs">2022 - 51.300KM - AUTOMÁTICO</p>
+                            </div>
+                        </div>
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/volkswagen_tcross.png" alt="Volkswagen T-cross">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>Volkswagen t-cross</h3>
+                                <p class="price">R$<span>108.000</span></p>
+                                <p class="specs">2022 - 27.842KM - AUTOMÁTICO</p>
+                            </div>
+                        </div>
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/volkswagen_polo.png" alt="Volkswagen Polo">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>VOLSKWAGEN POLO</h3>
+                                <p class="price">R$<span>84.600</span></p>
+                                <p class="specs">2025 - 5.232KM - MANUAL</p>
+                            </div>
+                        </div>
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/chevrolet_s10.png" alt="Chevrolet S10">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>Chevrolet S10</h3>
+                                <p class="price">R$<span>228.100</span></p>
+                                <p class="specs">2024 - 47.004KM - AUTOMÁTICO</p>
+                            </div>
+                        </div>
+                        <div class="car-card">
+                            <div class="car-card-image">
+                                <img src="assets/vehicles/honda_city.png" alt="Honda City">
+                            </div>
+                            <div class="car-card-details">
+                                <h3>HONDA CITY</h3>
+                                <p class="price">R$<span>109.900</span></p>
+                                <p class="specs">2023 - 23.055 - AUTOMÁTICO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+    </footer>
+
+    <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>
