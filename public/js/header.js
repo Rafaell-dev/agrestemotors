@@ -4,7 +4,7 @@ export const header = (() => {
     const headerContainer = /*HTML*/`
         <div class="container">
             <a href="./index.html" class="logo">
-                <img src="./assets/logo_agreste_branca.png" alt="Logo branca Agreste Motors">
+            <img src="./assets/logo_agreste_branca.png" alt="Logo branca Agreste Motors">
             </a>
 
             <button class="hamburger-menu"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
