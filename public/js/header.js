@@ -20,7 +20,7 @@ export const header = (() => {
                 <ul>
                     <li><a href="./vehicles.html">Veículos</a></li>
                     <li><a href="#contato">Consultoria</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="./about.html">Sobre</a></li>
                 </ul>
                 <div class="sidebar-phone">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -39,7 +39,7 @@ export const header = (() => {
                 <ul>
                     <li><a href="./vehicles.html">Veículos</a></li>
                     <li><a href="#contato">Consultoria</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="./about.html">Sobre</a></li>
                 </ul>
             </nav>
             <div class="desktop-phone">

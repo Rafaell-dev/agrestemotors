@@ -1,0 +1,87 @@
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+.about-section:nth-child(odd) {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.about-section:nth-child(even) {
+  background-color: #1c1c1c; /* Cor destaque */
+  color: #fff;
+}
+
+.about-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-section img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.about-section img:hover {
+  transform: scale(1.03);
+}
+
+.section-content {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Remove regra global que anulava os cantos arredondados */
+img {
+  border-radius: 0%;
+}
+
+/* Responsividade extra para telas pequenas */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-content,
+  .about-section img {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .section-content {
+    padding: 10px 0;
+  }
+}
