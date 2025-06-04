@@ -24,7 +24,7 @@ main {
 }
 
 .about-section:nth-child(even) {
-  background-color: #3e3535; /* Cor destaque */
+  background-color: #1c1c1c; /* Cor destaque */
   color: #fff;
 }
 
