@@ -1,15 +1,22 @@
-
 main {
   display: flex;
   flex-direction: column;
 }
 
 .about-section {
+  padding: 60px 0;
+}
+
+.about-section .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 60px 20px;
   flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.about-section.reverse .container {
+  flex-direction: row-reverse;
 }
 
 .about-section:nth-child(odd) {
@@ -18,12 +25,8 @@ main {
 }
 
 .about-section:nth-child(even) {
-  background-color: #1c1c1c; /* Cor destaque */
+  background-color: #1c1c1c;
   color: #fff;
-}
-
-.about-section.reverse {
-  flex-direction: row-reverse;
 }
 
 .about-section img {
@@ -57,14 +60,12 @@ main {
   text-align: justify;
 }
 
-/* Remove regra global que anulava os cantos arredondados */
 img {
   border-radius: 0%;
 }
 
-/* Responsividade extra para telas pequenas */
 @media (max-width: 768px) {
-  .about-section {
+  .about-section .container {
     flex-direction: column;
     text-align: center;
   }
@@ -78,4 +79,15 @@ img {
   .section-content {
     padding: 10px 0;
   }
+}
+
+.about-section.dark {
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+.about-section.dark .section-title,
+.about-section.dark h3,
+.about-section.dark .section-text {
+  color: #fff;
 }
