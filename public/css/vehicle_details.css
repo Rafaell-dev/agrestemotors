@@ -1144,6 +1144,10 @@
         margin: 0 5px; /* Reduzir margem em telas muito pequenas */
     }
     
+    .vehicle-details-grid, .main-image-container, .gallery-section, .gallery-section {
+        max-width: 310px;
+    }
+    
     .main-image {
         height: 250px;
     }
