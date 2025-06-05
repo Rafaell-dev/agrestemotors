@@ -1,240 +1,427 @@
-// Vehicle images data
-const vehicleImages = [
-    './assets/vehicles/main_photos/ford_0.jpeg',
-    './assets/vehicles/main_photos/ford_1.jpeg',
-    './assets/vehicles/main_photos/ford_2.jpeg',
-    './assets/vehicles/main_photos/ford_3.jpeg',
-    './assets/vehicles/main_photos/ford_4.jpeg',
-    './assets/vehicles/main_photos/ford_5.jpeg',
-    './assets/vehicles/main_photos/ford_6.jpeg',
-    './assets/vehicles/main_photos/ford_7.jpeg',
-];
+const detalhesVeiculo = (() => {
+    "use strict";
 
-let currentImageIndex = 0;
+    class DetalhesVeiculo {
+        constructor() {
+            this.imagensVeiculo = [
+                './assets/vehicles/main_photos/ford_0.jpeg',
+                './assets/vehicles/main_photos/ford_1.jpeg',
+                './assets/vehicles/main_photos/ford_2.jpeg',
+                './assets/vehicles/main_photos/ford_3.jpeg',
+                './assets/vehicles/main_photos/ford_4.jpeg',
+                './assets/vehicles/main_photos/ford_5.jpeg',
+                './assets/vehicles/main_photos/ford_6.jpeg',
+                './assets/vehicles/main_photos/ford_7.jpeg'
+            ];
 
-// Initialize the page
-document.addEventListener('DOMContentLoaded', function() {
-    initializeGallery();
-    initializeContactForm();
-    updateImageCounter();
-});
+            this.indiceImagemAtual = 0;
+            this.intervaloAutoplay = null;
+            this.tempoAutoplay = 5000;
+            this.autoplayAtivo = true;
+            this.permitirScrollAutomatico = true;
 
-// Initialize image gallery
-function initializeGallery() {
-    const thumbnailsContainer = document.getElementById('thumbnails');
-    const totalImagesElement = document.getElementById('totalImages');
-    
-    // Set total images count
-    totalImagesElement.textContent = vehicleImages.length;
-    
-    // Generate thumbnails
-    vehicleImages.forEach((image, index) => {
-        const thumbnail = document.createElement('div');
-        thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
-        thumbnail.innerHTML = `<img src="${image}" alt="Imagem ${index + 1}">`;
-        thumbnail.addEventListener('click', () => selectImage(index));
-        thumbnailsContainer.appendChild(thumbnail);
-    });
-}
+            this.inicializar();
+        }
 
-// Change main image
-function changeImage(direction) {
-    currentImageIndex += direction;
-    
-    if (currentImageIndex >= vehicleImages.length) {
-        currentImageIndex = 0;
-    } else if (currentImageIndex < 0) {
-        currentImageIndex = vehicleImages.length - 1;
-    }
-    
-    updateMainImage();
-    updateThumbnails();
-    updateImageCounter();
-}
+        inicializar() {
+            this.inicializarGaleria();
+            this.inicializarBotoesContato();
+            this.inicializarAbas();
+            this.adicionarNavegacaoTeclado();
+            this.adicionarSuporteTouch();
+            this.adicionarEfeitosCarregamentoImagem();
+            this.iniciarAutoplay();
+            this.atualizarContadorImagens();
+        }
 
-// Select specific image
-function selectImage(index) {
-    currentImageIndex = index;
-    updateMainImage();
-    updateThumbnails();
-    updateImageCounter();
-}
+        inicializarGaleria() {
+            const containerMiniaturas = document.getElementById("thumbnails");
+            const elementoTotalImagens = document.getElementById("totalImages");
 
-// Update main image
-function updateMainImage() {
-    const mainImage = document.getElementById('mainImage');
-    mainImage.src = vehicleImages[currentImageIndex];
-    
-    // Add fade effect
-    mainImage.style.opacity = '0';
-    setTimeout(() => {
-        mainImage.style.opacity = '1';
-    }, 100);
-}
+            if (!containerMiniaturas || !elementoTotalImagens) return;
 
-// Update thumbnail selection
-function updateThumbnails() {
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    thumbnails.forEach((thumbnail, index) => {
-        thumbnail.classList.toggle('active', index === currentImageIndex);
-    });
-}
+            elementoTotalImagens.textContent = this.imagensVeiculo.length;
 
-// Update image counter
-function updateImageCounter() {
-    const currentImageElement = document.getElementById('currentImage');
-    currentImageElement.textContent = currentImageIndex + 1;
-}
+            this.imagensVeiculo.forEach((imagem, indice) => {
+                const miniatura = document.createElement("div");
+                miniatura.className = `thumbnail ${indice === 0 ? "active" : ""}`;
+                miniatura.innerHTML = `<img src="${imagem}" alt="Imagem ${indice + 1}" loading="lazy">`;
+                miniatura.addEventListener("click", () => this.selecionarImagem(indice));
+                containerMiniaturas.appendChild(miniatura);
+            });
 
-// Tab functionality
-function openTab(evt, tabName) {
-    const tabContents = document.getElementsByClassName('tab-content');
-    const tabButtons = document.getElementsByClassName('tab-btn');
-    
-    // Hide all tab contents
-    for (let i = 0; i < tabContents.length; i++) {
-        tabContents[i].classList.remove('active');
-    }
-    
-    // Remove active class from all buttons
-    for (let i = 0; i < tabButtons.length; i++) {
-        tabButtons[i].classList.remove('active');
-    }
-    
-    // Show selected tab and mark button as active
-    document.getElementById(tabName).classList.add('active');
-    evt.currentTarget.classList.add('active');
-}
+            const secaoGaleria = document.querySelector(".gallery-section");
+            if (secaoGaleria) {
+                secaoGaleria.addEventListener("mouseenter", () => this.pausarAutoplay());
+                secaoGaleria.addEventListener("mouseleave", () => this.retomarAutoplay());
+            }
+        }
 
-// Show success message
-function showSuccessMessage() {
-    const successMessage = document.createElement('div');
-    successMessage.className = 'success-message';
-    successMessage.innerHTML = `
-        <div style="background: #d4edda; color: #155724; padding: 1rem; border-radius: 5px; margin: 1rem 0; border: 1px solid #c3e6cb;">
-            <i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entraremos em contato em breve.
-        </div>
-    `;
-    
-    const contactSection = document.querySelector('.contact-section');
-    contactSection.insertBefore(successMessage, contactSection.querySelector('.contact-form'));
-    
-    // Remove message after 5 seconds
-    setTimeout(() => {
-        successMessage.remove();
-    }, 5000);
-}
+        alterarImagem(direcao) {
+            this.permitirScrollAutomatico = false;
+            this.indiceImagemAtual += direcao;
 
-// WhatsApp button functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const whatsappBtn = document.querySelector('.btn-whatsapp');
-    const phoneBtn = document.querySelector('.btn-phone');
-    
-    whatsappBtn.addEventListener('click', function() {
-        const message = encodeURIComponent('Olá! Tenho interesse no Toyota Etios 2020 anunciado no site.');
-        const whatsappUrl = `https://wa.me/5511999999999?text=${message}`;
-        window.open(whatsappUrl, '_blank');
-    });
-    
-    phoneBtn.addEventListener('click', function() {
-        window.location.href = 'tel:+5511333344444';
-    });
-});
+            if (this.indiceImagemAtual >= this.imagensVeiculo.length) {
+                this.indiceImagemAtual = 0;
+            } else if (this.indiceImagemAtual < 0) {
+                this.indiceImagemAtual = this.imagensVeiculo.length - 1;
+            }
 
-// Smooth scrolling for internal links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            this.atualizarImagemPrincipal();
+            this.atualizarMiniaturas();
+            this.atualizarContadorImagens();
+            this.reiniciarAutoplay();
+            
+            setTimeout(() => {
+                this.permitirScrollAutomatico = true;
+            }, 1000);
+        }
+
+        selecionarImagem(indice) {
+            this.permitirScrollAutomatico = true;
+            this.indiceImagemAtual = indice;
+            this.atualizarImagemPrincipal();
+            this.atualizarMiniaturas();
+            this.atualizarContadorImagens();
+            this.reiniciarAutoplay();
+        }
+
+        atualizarImagemPrincipal() {
+            const imagemPrincipal = document.getElementById("mainImage");
+            if (!imagemPrincipal) return;
+
+            imagemPrincipal.style.opacity = "0";
+
+            setTimeout(() => {
+                imagemPrincipal.src = this.imagensVeiculo[this.indiceImagemAtual];
+                imagemPrincipal.style.opacity = "1";
+            }, 150);
+        }
+
+        atualizarMiniaturas() {
+            const miniaturas = document.querySelectorAll(".thumbnail");
+            miniaturas.forEach((miniatura, indice) => {
+                miniatura.classList.toggle("active", indice === this.indiceImagemAtual);
+            });
+
+            if (!this.permitirScrollAutomatico) return;
+
+            const miniaturaAtiva = document.querySelector(".thumbnail.active");
+            const containerMiniaturas = document.getElementById("thumbnails");
+            
+            if (miniaturaAtiva && containerMiniaturas && this.elementoNoViewport(containerMiniaturas)) {
+                const containerRect = containerMiniaturas.getBoundingClientRect();
+                const miniaturaRect = miniaturaAtiva.getBoundingClientRect();
+                
+                const estaVisivel = miniaturaRect.left >= containerRect.left && 
+                                   miniaturaRect.right <= containerRect.right;
+                
+                if (!estaVisivel) {
+                    miniaturaAtiva.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "center"
+                    });
+                }
+            }
+        }
+
+        atualizarContadorImagens() {
+            const elementoImagemAtual = document.getElementById("currentImage");
+            if (elementoImagemAtual) {
+                elementoImagemAtual.textContent = this.indiceImagemAtual + 1;
+            }
+        }
+
+        iniciarAutoplay() {
+            if (this.imagensVeiculo.length <= 1) return;
+
+            this.intervaloAutoplay = setInterval(() => {
+                this.alterarImagem(1);
+            }, this.tempoAutoplay);
+        }
+
+        pausarAutoplay() {
+            if (this.intervaloAutoplay) {
+                clearInterval(this.intervaloAutoplay);
+                this.intervaloAutoplay = null;
+            }
+        }
+
+        retomarAutoplay() {
+            if (this.autoplayAtivo && !this.intervaloAutoplay) {
+                this.iniciarAutoplay();
+            }
+        }
+
+        reiniciarAutoplay() {
+            this.pausarAutoplay();
+            this.retomarAutoplay();
+        }
+
+        inicializarBotoesContato() {
+            const btnWhatsapp = document.querySelector(".btn-whatsapp");
+            const btnTelefone = document.querySelector(".btn-phone");
+
+            if (btnWhatsapp) {
+                btnWhatsapp.addEventListener("click", () => {
+                    const nomeVeiculo = document.querySelector(".vehicle-title")?.textContent || "Ford Focus SE 2.0";
+                    const mensagem = encodeURIComponent(
+                        `Olá! Tenho interesse no ${nomeVeiculo} anunciado no site da Agreste Motors.`
+                    );
+                    const urlWhatsapp = `https://wa.me/5587999999999?text=${mensagem}`;
+                    window.open(urlWhatsapp, "_blank");
+                });
+            }
+
+            if (btnTelefone) {
+                btnTelefone.addEventListener("click", () => {
+                    window.location.href = "tel:+5587999999999";
+                });
+            }
+        }
+
+        inicializarAbas() {
+            const botaoAbas = document.querySelectorAll(".tab-btn");
+
+            botaoAbas.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    this.rastrearCliqueAba(btn.textContent.trim());
+                });
             });
         }
-    });
-});
 
-// Add loading animation for images
-function addImageLoadingEffect() {
-    const images = document.querySelectorAll('img');
-    
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-        
-        img.addEventListener('error', function() {
-            this.src = '/placeholder.svg?height=400&width=600&text=Imagem+não+encontrada';
-        });
-    });
-}
+        rastrearCliqueAba(nomeAba) {
+            console.log(`Aba clicada: ${nomeAba}`);
+        }
 
-// Initialize image loading effects
-document.addEventListener('DOMContentLoaded', addImageLoadingEffect);
+        adicionarNavegacaoTeclado() {
+            document.addEventListener("keydown", (e) => {
+                const secaoGaleria = document.querySelector(".gallery-section");
+                if (!secaoGaleria || !this.elementoNoViewport(secaoGaleria)) return;
 
-// Add keyboard navigation for gallery
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowLeft') {
-        changeImage(-1);
-    } else if (e.key === 'ArrowRight') {
-        changeImage(1);
-    }
-});
+                switch (e.key) {
+                    case "ArrowLeft":
+                        e.preventDefault();
+                        this.alterarImagem(-1);
+                        break;
+                    case "ArrowRight":
+                        e.preventDefault();
+                        this.alterarImagem(1);
+                        break;
+                    case " ":
+                        e.preventDefault();
+                        if (this.autoplayAtivo) {
+                            this.pausarAutoplay();
+                            this.autoplayAtivo = false;
+                        } else {
+                            this.retomarAutoplay();
+                            this.autoplayAtivo = true;
+                        }
+                        break;
+                }
+            });
+        }
 
-// Add touch/swipe support for mobile gallery
-let touchStartX = 0;
-let touchEndX = 0;
+        adicionarSuporteTouch() {
+            const imagemPrincipal = document.querySelector(".main-image");
+            if (!imagemPrincipal) return;
 
-document.querySelector('.main-image').addEventListener('touchstart', function(e) {
-    touchStartX = e.changedTouches[0].screenX;
-});
+            let inicioTouchX = 0;
+            let fimTouchX = 0;
+            let inicioTouchY = 0;
+            let fimTouchY = 0;
+            const distanciaMinSwipe = 50;
 
-document.querySelector('.main-image').addEventListener('touchend', function(e) {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
+            imagemPrincipal.addEventListener(
+                "touchstart",
+                (e) => {
+                    inicioTouchX = e.touches[0].clientX;
+                    inicioTouchY = e.touches[0].clientY;
+                },
+                { passive: true }
+            );
 
-function handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
-    
-    if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0) {
-            // Swipe left - next image
-            changeImage(1);
-        } else {
-            // Swipe right - previous image
-            changeImage(-1);
+            imagemPrincipal.addEventListener(
+                "touchmove",
+                (e) => {
+                    const atualX = e.touches[0].clientX;
+                    const atualY = e.touches[0].clientY;
+                    const difX = Math.abs(atualX - inicioTouchX);
+                    const difY = Math.abs(atualY - inicioTouchY);
+
+                    if (difX > difY && difX > 20) {
+                        e.preventDefault();
+                    }
+                },
+                { passive: false }
+            );
+
+            imagemPrincipal.addEventListener(
+                "touchend",
+                (e) => {
+                    fimTouchX = e.changedTouches[0].clientX;
+                    fimTouchY = e.changedTouches[0].clientY;
+                    this.manipularSwipe(inicioTouchX, fimTouchX, inicioTouchY, fimTouchY, distanciaMinSwipe);
+                },
+                { passive: true }
+            );
+        }
+
+        manipularSwipe(inicioX, fimX, inicioY, fimY, distanciaMin) {
+            const difX = inicioX - fimX;
+            const difY = Math.abs(inicioY - fimY);
+
+            if (Math.abs(difX) > difY && Math.abs(difX) > distanciaMin) {
+                if (difX > 0) {
+                    this.alterarImagem(1);
+                } else {
+                    this.alterarImagem(-1);
+                }
+            }
+        }
+
+        adicionarEfeitosCarregamentoImagem() {
+            const imagens = document.querySelectorAll("img");
+
+            imagens.forEach((img) => {
+                img.addEventListener("load", function () {
+                    this.classList.add("loaded");
+                });
+
+                img.addEventListener("error", function () {
+                    this.src = "/assets/placeholder.jpeg";
+                    this.classList.add("loaded");
+                });
+
+                if (img.complete) {
+                    img.classList.add("loaded");
+                }
+            });
+        }
+
+        elementoNoViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        adicionarImagem(urlImagem) {
+            this.imagensVeiculo.push(urlImagem);
+            this.inicializarGaleria();
+        }
+
+        removerImagem(indice) {
+            if (indice >= 0 && indice < this.imagensVeiculo.length) {
+                this.imagensVeiculo.splice(indice, 1);
+                if (this.indiceImagemAtual >= this.imagensVeiculo.length) {
+                    this.indiceImagemAtual = this.imagensVeiculo.length - 1;
+                }
+                this.inicializarGaleria();
+                this.atualizarImagemPrincipal();
+                this.atualizarContadorImagens();
+            }
         }
     }
-}
 
-// Add scroll animations
-function addScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+    function abrirAba(evt, nomeAba) {
+        const conteudoAbas = document.getElementsByClassName("tab-content");
+        const botoesAbas = document.getElementsByClassName("tab-btn");
+
+        for (let i = 0; i < conteudoAbas.length; i++) {
+            conteudoAbas[i].classList.remove("active");
+        }
+
+        for (let i = 0; i < botoesAbas.length; i++) {
+            botoesAbas[i].classList.remove("active");
+        }
+
+        const abaeSelecionada = document.getElementById(nomeAba);
+        if (abaeSelecionada) {
+            abaeSelecionada.classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    }
+
+    function alterarImagem(direcao) {
+        if (window.instanciaDetalhesVeiculo) {
+            window.instanciaDetalhesVeiculo.alterarImagem(direcao);
+        }
+    }
+
+    function selecionarImagem(indice) {
+        if (window.instanciaDetalhesVeiculo) {
+            window.instanciaDetalhesVeiculo.selecionarImagem(indice);
+        }
+    }
+
+    function changeImage(direction) {
+        if (window.instanciaDetalhesVeiculo) {
+            window.instanciaDetalhesVeiculo.alterarImagem(direction);
+        }
+    }
+
+    function selectImage(index) {
+        if (window.instanciaDetalhesVeiculo) {
+            window.instanciaDetalhesVeiculo.selecionarImagem(index);
+        }
+    }
+
+    function openTab(evt, tabName) {
+        return abrirAba(evt, tabName);
+    }
+
+    function configurarEventosVisibilidade() {
+        document.addEventListener("visibilitychange", () => {
+            if (window.instanciaDetalhesVeiculo) {
+                if (document.hidden) {
+                    window.instanciaDetalhesVeiculo.pausarAutoplay();
+                } else if (window.instanciaDetalhesVeiculo.autoplayAtivo) {
+                    window.instanciaDetalhesVeiculo.retomarAutoplay();
+                }
             }
         });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.vehicle-info, .details-tabs, .footer');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-}
+    }
 
-// Initialize scroll animations
-document.addEventListener('DOMContentLoaded', addScrollAnimations);
+    function configurarRedimensionamento() {
+        window.addEventListener("resize", () => {
+            clearTimeout(window.timeoutRedimensionamento);
+            window.timeoutRedimensionamento = setTimeout(() => {
+                if (window.instanciaDetalhesVeiculo) {
+                    window.instanciaDetalhesVeiculo.atualizarMiniaturas();
+                }
+            }, 250);
+        });
+    }
+
+    async function inicializarDetalhes() {
+        const imagemPrincipal = document.getElementById("mainImage");
+        if (imagemPrincipal) {
+            window.instanciaDetalhesVeiculo = new DetalhesVeiculo();
+            configurarEventosVisibilidade();
+            configurarRedimensionamento();
+            window.abrirAba = abrirAba;
+            window.alterarImagem = alterarImagem;
+            window.selecionarImagem = selecionarImagem;
+            window.changeImage = changeImage;
+            window.selectImage = selectImage;
+            window.openTab = openTab;
+        } else {
+            console.error("Elemento de imagem principal não encontrado.");
+        }
+    }
+
+    async function inicializar() {
+        await inicializarDetalhes();
+    }
+
+    return { inicializar };
+})();
+
+document.addEventListener("DOMContentLoaded", () => {
+    detalhesVeiculo.inicializar();
+});

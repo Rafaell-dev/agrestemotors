@@ -1,109 +1,196 @@
-.btn-primary {
-    background-color: #D74500;
+/* Breadcrumb */
+.breadcrumb-section {
+    background: #f8f9fa;
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Rever container global */
+.container {
+    padding: 0; 
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #d74500;
+}
+
+.breadcrumb svg {
+    color: #ccc;
+}
+
+.breadcrumb span {
+    color: #d74500;
+    font-weight: 500;
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px 0;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Vehicle Header */
+.vehicle-header-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.vehicle-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #d74500, #ff6b1a);
     color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(215, 69, 0, 0.3);
 }
 
-.btn-primary:hover {
-    background-color: #c63b00;
+.vehicle-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1c1c1c;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
 }
 
-.vehicle-details {
-    max-width: 1100px;
-    margin-top: 40px;
-    width: 100%;
+.vehicle-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Main Grid */
+.vehicle-details-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 30px;
+    margin-bottom: 50px;
 }
 
-/* Gallery */
+/* Gallery Section */
 .gallery-section {
-    background: #fff;
-    border-radius: 4px;
+    background: white;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     height: fit-content;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+}
+
+.main-image-container {
+    position: relative;
 }
 
 .main-image {
     position: relative;
-    height: 400px;
+    height: 500px;
     overflow: hidden;
+    background: #f8f9fa;
 }
 
 .main-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .image-counter {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(0,0,0,0.7);
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+    padding: 8px 16px;
+    border-radius: 20px;
     font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
 }
 
 .gallery-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.95);
     border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .gallery-btn:hover {
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    background: #d74500;
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(215, 69, 0, 0.3);
 }
 
 .prev-btn {
-    left: 1rem;
+    left: 20px;
 }
 
 .next-btn {
-    right: 1rem;
+    right: 20px;
 }
 
 .thumbnail-gallery {
-    padding: 1rem;
+    padding: 20px;
     background: #f8f9fa;
 }
 
 .thumbnails {
     display: flex;
-    gap: 0.5rem;
+    gap: 12px;
     overflow-x: auto;
+    padding-bottom: 5px;
 }
 
 .thumbnail {
-    width: 80px;
-    height: 60px;
-    border-radius: 4px;
+    width: 100px;
+    height: 75px;
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
-    border: 2px solid transparent;
-    transition: all 0.3s;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .thumbnail.active {
-    border-color: #D74500;
+    border-color: #d74500;
+    transform: scale(1.05);
+}
+
+.thumbnail:hover {
+    border-color: rgba(215, 69, 0, 0.5);
 }
 
 .thumbnail img {
@@ -112,193 +199,375 @@
     object-fit: cover;
 }
 
-/* Vehicle Info */
-.vehicle-info {
-    background: #fff;
-    border-radius: 4px;
-    padding: 1.3rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/* Vehicle Info Sidebar */
+.vehicle-info-sidebar {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 20px;
 }
 
-.vehicle-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #333;
+/* Cards Base Style */
+.price-card,
+.highlights-card,
+.contact-card,
+.financing-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
 }
 
-.vehicle-year {
-    color: #666;
-    margin-bottom: 1.5rem;
+.price-card:hover,
+.highlights-card:hover,
+.contact-card:hover,
+.financing-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
 }
 
-.price-section {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #eee;
+/* Price Card */
+.price-header {
+    text-align: center;
 }
 
-.price-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #D74500;
+.price-main {
+    margin-bottom: 15px;
 }
 
 .price-label {
+    display: block;
+    font-size: 0.9rem;
     color: #666;
-    margin-right: 0.5rem;
+    margin-bottom: 5px;
+}
+
+.price-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #d74500;
+    display: block;
+}
+
+.price-financing {
+    padding-top: 15px;
+    border-top: 1px solid #f1f3f4;
 }
 
 .financing-text {
-    color: #666;
-    font-size: 0.9rem;
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 5px;
 }
 
-.vehicle-highlights {
+.financing-note {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* Highlights Card */
+.highlights-card h3,
+.contact-card h3,
+.financing-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1c1c1c;
+    margin: 0 0 20px 0;
+}
+
+.highlights-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 15px;
 }
 
 .highlight-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    background: rgba(215, 69, 0, 0.05);
+    transform: translateX(5px);
+}
+
+.highlight-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #d74500, #ff6b1a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.highlight-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight-label {
+    font-size: 0.85rem;
     color: #666;
+    margin-bottom: 2px;
 }
 
-.highlight-item i {
-    color: #D74500;
-}
-
-/* Contact Section */
-.contact-section h3 {
-    margin-bottom: 1rem;
+.highlight-value {
+    font-size: 1rem;
+    font-weight: 600;
     color: #333;
 }
 
-.contact-form {
-    margin-bottom: 1rem;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-.form-group textarea {
-    height: 80px;
-    resize: vertical;
-}
-
-.btn-full {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-}
-
+/* Contact Card */
 .contact-buttons {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    justify-content: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 .btn-whatsapp,
 .btn-phone {
-    flex: 1;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    transition: all 0.3s;
+    gap: 10px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .btn-whatsapp {
-    background: #28a745;
+    background: linear-gradient(135deg, #25d366, #128c7e);
     color: white;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
 .btn-whatsapp:hover {
-    background: #128c7e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    background: linear-gradient(135deg, #128c7e, #075e54);
 }
 
 .btn-phone {
-    background: #D74500;
+    background: linear-gradient(135deg, #d74500, #ff6b1a);
     color: white;
+    box-shadow: 0 4px 15px rgba(215, 69, 0, 0.3);
 }
 
-/* Tabs */
-.details-tabs {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    background: #fff;
+.btn-phone:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(215, 69, 0, 0.4);
+    background: linear-gradient(135deg, #b83a00, #e55a00);
+}
+
+.contact-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #666;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.contact-note svg {
+    color: #d74500;
+    flex-shrink: 0;
+}
+
+/* Financing Card */
+.financing-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.financing-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.financing-option:hover {
+    background: rgba(215, 69, 0, 0.05);
+    transform: translateX(5px);
+}
+
+.financing-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #d74500, #ff6b1a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.financing-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.financing-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.financing-desc {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Details Tabs Section */
+.details-tabs-section {
+    margin-top: 50px;
+}
+
+.tabs-container {
+    background: white;
+    border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
 }
 
 .tab-navigation {
     display: flex;
     background: #f8f9fa;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e9ecef;
 }
 
 .tab-btn {
     flex: 1;
-    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
     border: none;
     background: transparent;
     cursor: pointer;
     font-weight: 500;
-    transition: all 0.3s;
+    font-size: 1rem;
+    color: #666;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .tab-btn.active {
-    background: #fff;
-    color: #e74c3c;
-    border-bottom: 2px solid #e74c3c;
+    background: white;
+    color: #d74500;
+}
+
+.tab-btn.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #d74500, #ff6b1a);
+}
+
+.tab-btn:hover:not(.active) {
+    background: rgba(215, 69, 0, 0.05);
+    color: #d74500;
+}
+
+.tab-content-container {
+    position: relative;
 }
 
 .tab-content {
     display: none;
-    padding: 2rem;
-    width: 100%;
+    padding: 40px;
+    animation: fadeInUp 0.5s ease;
 }
 
 .tab-content.active {
     display: block;
 }
 
+.tab-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tab-header h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1c1c1c;
+    margin: 0 0 10px 0;
+}
+
+.tab-header p {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Specifications Tab */
 .specs-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.spec-category {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid #e9ecef;
+}
+
+.spec-category h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #d74500;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d74500;
+}
+
+.spec-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .spec-item {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.spec-item:last-child {
+    border-bottom: none;
 }
 
 .spec-label {
@@ -307,80 +576,265 @@
 }
 
 .spec-value {
+    font-weight: 600;
     color: #333;
+    text-align: right;
+}
+
+/* Description Tab */
+.description-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.description-text {
+    margin-bottom: 40px;
+}
+
+.description-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.features-section h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1c1c1c;
+    margin: 0 0 25px 0;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.feature-category {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid #e9ecef;
+}
+
+.feature-category h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #d74500;
+    margin: 0 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d74500;
 }
 
 .features-list {
     list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    margin-top: 1rem;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .features-list li {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #555;
+    padding: 8px 0;
 }
 
-.features-list i {
+.features-list svg {
     color: #28a745;
+    flex-shrink: 0;
 }
 
-.financing-options {
+/* Location Tab */
+.location-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-#description p {
-    text-wrap: wrap;
+.location-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
+.location-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
 
-.map-placeholder {
-    height: 200px;
-    background: #f0f0f0;
-    border-radius: 10px;
+.location-card:hover {
+    background: rgba(215, 69, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.location-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #d74500, #ff6b1a);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.location-details h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1c1c1c;
+    margin: 0 0 8px 0;
+}
+
+.location-details p {
+    font-size: 0.95rem;
     color: #666;
-}
-h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #333;
+    line-height: 1.5;
+    margin: 0;
 }
 
-h4 {
-    font-size: 1.25rem;
-    margin-top: 0.5rem;
-    color: #333;
+.map-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .vehicle-details {
-        grid-template-columns: 1fr;
+.map-placeholder {
+    width: 100%;
+    height: 300px;
+    background: #f8f9fa;
+    border: 2px dashed #ddd;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    text-align: center;
+}
+
+.map-placeholder svg {
+    margin-bottom: 15px;
+}
+
+.map-placeholder p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
 
-    .vehicle-highlights {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .vehicle-details-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .vehicle-info-sidebar {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
     }
 
     .specs-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
     }
 
-    .financing-options {
-        grid-template-columns: 1fr;
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
     }
 
-    .contact-buttons {
-        flex-direction: column;
+    .location-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px 0;
+    }
+
+    .vehicle-title {
+        font-size: 2.2rem;
+    }
+
+    .vehicle-subtitle {
+        font-size: 1rem;
+    }
+
+    .vehicle-details-grid {
+        gap: 20px;
+    }
+
+    .main-image {
+        height: 300px;
+    }
+
+    .gallery-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .prev-btn {
+        left: 10px;
+    }
+
+    .next-btn {
+        right: 10px;
+    }
+
+    .thumbnail {
+        width: 80px;
+        height: 60px;
+    }
+
+    .thumbnails {
+        gap: 8px;
+    }
+
+    .price-card,
+    .highlights-card,
+    .contact-card,
+    .financing-card {
+        padding: 20px;
+    }
+
+    .price-value {
+        font-size: 2rem;
+    }
+
+    .vehicle-info-sidebar {
+        grid-template-columns: 1fr;
     }
 
     .tab-navigation {
@@ -389,24 +843,401 @@ h4 {
 
     .tab-btn {
         flex: 1 1 50%;
+        padding: 15px 10px;
+        font-size: 0.9rem;
+    }
+
+    .tab-content {
+        padding: 25px 20px;
+    }
+
+    .tab-header h3 {
+        font-size: 1.6rem;
+    }
+
+    .specs-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .highlights-grid {
+        gap: 12px;
+    }
+
+    .highlight-item {
+        padding: 12px;
+    }
+
+    .highlight-icon {
+        width: 40px;
+        height: 40px;
     }
 }
 
 @media (max-width: 480px) {
-    .thumbnails {
-        justify-content: center;
+    .vehicle-title {
+        font-size: 1.8rem;
+    }
+
+    .breadcrumb {
+        font-size: 0.8rem;
+    }
+
+    .main-image {
+        height: 250px;
+    }
+
+    .image-counter {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .gallery-btn {
+        width: 35px;
+        height: 35px;
     }
 
     .thumbnail {
-        width: 60px;
-        height: 45px;
-    }
-
-    .vehicle-title {
-        font-size: 1.2rem;
+        width: 70px;
+        height: 50px;
     }
 
     .price-value {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
+
+    .financing-text {
+        font-size: 1rem;
+    }
+
+    .tab-btn {
+        flex: 1 1 100%;
+        padding: 12px;
+    }
+
+    .tab-content {
+        padding: 20px 15px;
+    }
+
+    .tab-header h3 {
+        font-size: 1.4rem;
+    }
+
+    .spec-category,
+    .feature-category {
+        padding: 15px;
+    }
+
+    .highlight-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .contact-buttons {
+        gap: 10px;
+    }
+
+    .btn-whatsapp,
+    .btn-phone {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Loading States */
+.main-image img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.main-image img.loaded {
+    opacity: 1;
+}
+
+/* Custom Scrollbar */
+.thumbnails::-webkit-scrollbar {
+    height: 6px;
+}
+
+.thumbnails::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.thumbnails::-webkit-scrollbar-thumb {
+    background: #d74500;
+    border-radius: 3px;
+}
+
+.thumbnails::-webkit-scrollbar-thumb:hover {
+    background: #b83a00;
+}
+
+/* Accessibility */
+.gallery-btn:focus,
+.tab-btn:focus,
+.btn-whatsapp:focus,
+.btn-phone:focus {
+    outline: 2px solid #d74500;
+    outline-offset: 2px;
+}
+
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .main-image img,
+    .gallery-btn,
+    .tab-btn,
+    .highlight-item,
+    .financing-option,
+    .location-card {
+        transition: none;
+    }
+
+    .tab-content {
+        animation: none;
+    }
+
+    .gallery-btn:hover,
+    .highlight-item:hover,
+    .financing-option:hover,
+    .location-card:hover {
+        transform: none;
+    }
+}
+
+/* Correções para a galeria em dispositivos móveis */
+
+/* Corrigir container da galeria */
+.gallery-section {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    height: fit-content;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+    /* Adicionar para prevenir overflow */
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Corrigir container principal da imagem */
+.main-image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Adicionar para prevenir overflow */
+}
+
+.main-image {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    background: #f8f9fa;
+    width: 100%;
+}
+
+/* Corrigir galeria de thumbnails */
+.thumbnail-gallery {
+    padding: 20px;
+    background: #f8f9fa;
+    width: 100%;
+    overflow: hidden; /* Prevenir overflow */
+}
+
+.thumbnails {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 5px;
+    width: 100%;
+    /* Otimizar scrolling horizontal para mobile */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    /* Prevenir interferência com scroll vertical */
+    touch-action: pan-x;
+    /* Melhorar performance */
+    will-change: scroll-position;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 75px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    /* Garantir tamanho mínimo */
+    min-width: 100px;
+}
+
+/* Ajustes específicos para tablets */
+@media (max-width: 1200px) {
+    .thumbnail-gallery {
+        padding: 15px;
+    }
+    
+    .thumbnails {
+        gap: 10px;
+    }
+    
+    .thumbnail {
+        width: 90px;
+        height: 68px;
+        min-width: 90px;
+    }
+}
+
+/* Otimizações específicas para touch e scroll mobile */
+@media (max-width: 768px) {
+    .main-content {
+        overflow-x: hidden;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .gallery-section {
+        border-radius: 15px;
+        margin: 0 10px;
+        touch-action: manipulation;
+    }
+    
+    .thumbnails {
+        gap: 8px;
+        touch-action: pan-x;
+        overscroll-behavior-x: contain;
+        scroll-behavior: smooth;
+    }
+    
+    .gallery-btn {
+        width: 40px;
+        height: 40px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .thumbnail {
+        width: 80px;
+        height: 60px;
+        min-width: 80px;
+        border-radius: 8px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* Ajustes para dispositivos móveis pequenos */
+@media (max-width: 480px) {
+    .gallery-section {
+        border-radius: 12px;
+        margin: 0 5px; /* Reduzir margem em telas muito pequenas */
+    }
+    
+    .main-image {
+        height: 250px;
+    }
+
+    .image-counter {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .gallery-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .prev-btn {
+        left: 8px;
+    }
+
+    .next-btn {
+        right: 8px;
+    }
+
+    .thumbnail-gallery {
+        padding: 12px;
+    }
+
+    .thumbnail {
+        width: 70px;
+        height: 50px;
+        min-width: 70px; /* Garantir tamanho mínimo */
+        border-radius: 6px;
+        border-width: 2px; /* Reduzir largura da borda */
+    }
+
+    .thumbnails {
+        gap: 6px;
+    }
+}
+
+/* Ajustes para telas muito pequenas (320px ou menos) */
+@media (max-width: 320px) {
+    .gallery-section {
+        margin: 0 2px;
+    }
+    
+    .thumbnail-gallery {
+        padding: 10px;
+    }
+    
+    .thumbnail {
+        width: 60px;
+        height: 45px;
+        min-width: 60px;
+    }
+    
+    .thumbnails {
+        gap: 4px;
+    }
+}
+
+/* Corrigir grid principal para mobile */
+@media (max-width: 768px) {
+    .vehicle-details-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 0 10px; /* Adicionar margem para evitar que toque as bordas */
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vehicle-details-grid {
+        margin: 0 5px;
+        margin-bottom: 25px;
+    }
+}
+
+/* Melhorar scrollbar personalizada para mobile */
+.thumbnails::-webkit-scrollbar {
+    height: 4px; /* Reduzir altura em mobile */
+}
+
+@media (max-width: 768px) {
+    .thumbnails::-webkit-scrollbar {
+        height: 3px;
+    }
+}
+
+/* Garantir que imagens não quebrem o layout */
+.thumbnail img,
+.main-image img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
