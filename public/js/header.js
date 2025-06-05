@@ -19,7 +19,7 @@ export const header = (() => {
             <nav class="sidebar">
                 <ul>
                     <li><a href="./vehicles.html">Veículos</a></li>
-                    <li><a href="#contato">Consultoria</a></li>
+                    <li><a href="./consultancy.html">Consultoria</a></li>
                     <li><a href="./about.html">Sobre</a></li>
                 </ul>
                 <div class="sidebar-phone">
@@ -38,7 +38,7 @@ export const header = (() => {
             <nav class="desktop-nav">
                 <ul>
                     <li><a href="./vehicles.html">Veículos</a></li>
-                    <li><a href="#contato">Consultoria</a></li>
+                    <li><a href="./consultancy.html">Consultoria</a></li>
                     <li><a href="./about.html">Sobre</a></li>
                 </ul>
             </nav>
